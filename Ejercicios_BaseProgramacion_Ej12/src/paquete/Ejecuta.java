@@ -13,28 +13,32 @@ public class Ejecuta {
 		int numero;
 		int resto;
 		boolean primo = true;
+		String mensaje;
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Introduzca un número: ");
 		numero = sc.nextInt();
 		
+		if(numero<2)
+		{
+			primo = false;
+		}
+		
+		primo = true;
+			
 		for(int candidatoDivisor = 2; candidatoDivisor < numero && primo == true; candidatoDivisor++)
 		{
-			resto = numero%candidatoDivisor;
+			resto = numero % candidatoDivisor;
+			
 			if(resto==0)
 			{
 				primo = false;
 			}
 		}
+
 		
-		if(primo==true)
-		{
-			System.out.println("El número " + numero + " es primo.");
-		}
-		else
-		{
-			System.out.println("El número " + numero + " no es primo.");
-		}
+		mensaje = (primo)?"Es primo":"No es primo";
+		System.out.println(mensaje);
 	}
 
 }
